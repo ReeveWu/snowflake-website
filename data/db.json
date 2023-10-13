@@ -1,0 +1,30 @@
+{
+  "expenditure": [
+    {
+      "description": "dinner",
+      "total": 100,
+      "category": "Food",
+      "id": 1
+    },
+    {
+      "description": "Car",
+      "total": 12,
+      "category": "Transportation",
+      "id": 2
+    },
+    {
+      "description": "12",
+      "total": 123,
+      "category": "Food",
+      "id": 3
+    }
+  ],
+  "income": [
+    {
+      "description": "12345",
+      "total": 123,
+      "source": "Salary",
+      "id": 2
+    }
+  ]
+}

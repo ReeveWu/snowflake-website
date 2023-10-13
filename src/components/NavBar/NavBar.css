@@ -1,0 +1,41 @@
+@import url("../../index.css");
+
+.navbar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--defaultBrightColor);
+}
+.navbar h1 {
+    color: var(--primaryColor);
+    cursor: pointer;
+}
+.navbar .links {
+    margin-left: auto;
+}
+.links {
+    margin-right: 10px;
+}
+.navbar a {
+    color: var(--defaultDarkColor);
+    font-size: 18px;
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+}
+.navbar a:hover {
+    color: var(--primaryColor);
+}
+
+.navbar hr {
+    color: var(--defaultDarkColor);
+}
+
+.nav-component {
+    font-size: var(--smallFontSize) !important;
+}
+
+span {
+    position: relative;
+    top: 3px;
+}

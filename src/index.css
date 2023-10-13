@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --defaultDarkColor: #333;
+  --defaultBrightColor: white;
+  --primaryColor: #38a3a5;
+  --smallFontSize: 20px;
+  --mediumFontSize: 35px;
+  --largeFontSize: 50px;
+}
+
+* {
+  font-family: "Quicksand";
+  color: var(--defaultColor);
+}
+
+
+body {
+  padding: 20px;
+}
+
+.cbtn {
+  width: 100px;
+  height: 50px;
+  
+  background-color: var(--primaryColor) !important;
+  border: 1px solid var(--primaryColor) !important;
+}
+
+.cbtn:hover,
+.cbtn:active {
+  color: var(--primaryColor) !important;
+  background-color: var(--defaultBrightColor) !important;
+  border: 1px solid var(--primaryColor) !important;
+}
+
+.content {
+  padding: 20px;
+}
