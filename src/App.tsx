@@ -10,7 +10,7 @@ function App() {
   return (
     <Router basename="/snowflake-website">
       <div className="App">
-        <div>
+        <div className="NavBar">
           <NavBar />
         </div>
         <div className="content">
