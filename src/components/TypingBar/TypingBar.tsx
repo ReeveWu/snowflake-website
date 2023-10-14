@@ -72,6 +72,8 @@ const TypingBar = () => {
               loading: "處理中...",
               success: () => {
                 setUserInput("");
+                setIsUploadFile(false);
+                setFileName("");
                 return <b>上傳成功</b>;
               },
               error: <b>上傳失敗</b>,
