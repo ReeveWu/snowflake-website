@@ -14,7 +14,7 @@ const NavBar = () => {
           <Link to="/">
             <button className="btn nav-component cbtn btn-primary">首頁</button>
           </Link>
-          <Link to="/">
+          <Link to="/about">
             <span className="nav-component">活動簡介</span>
           </Link>
           <Link to="/show-opinion">

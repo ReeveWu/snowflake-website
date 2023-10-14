@@ -15,22 +15,6 @@ function App() {
         </div>
         <div className="content">
           <Routes>
-            {/* <Route
-              path="/create-expenditure"
-              element={
-                <div className="mb-5">
-                  <ExpenditureForm />
-                </div>
-              }
-            />
-            <Route
-              path="/create-income"
-              element={
-                <div className="mb-5">
-                  <IncomeForm />
-                </div>
-              }
-            /> */}
             <Route
               path="/"
               element={
@@ -39,6 +23,7 @@ function App() {
                 </div>
               }
             />
+            <Route path="/about" element={<div>Coming soon...</div>} />
             <Route
               path="/show-opinion"
               element={
