@@ -4,7 +4,8 @@ import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import SendIcon from "@mui/icons-material/Send";
 import ImageIcon from "@mui/icons-material/Image";
-import CloseIcon from "@mui/icons-material/Close";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import toast, { Toaster } from "react-hot-toast";
 import {
@@ -28,7 +29,18 @@ const TypingBar = () => {
     setFileName(file.name);
   };
   return (
-    <CenteredContainer>
+    <Stack
+      direction="column"
+      spacing={3}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "680px",
+        height: "70vh",
+      }}
+    >
+      {/* <CenteredContainer> */}
       <SearchBarTitle>說到玻璃心，你會想到...</SearchBarTitle>
 
       <SearchBarContainer>
@@ -42,17 +54,55 @@ const TypingBar = () => {
         </SearchBarRow>
       </SearchBarContainer>
       <UploadContainer>
-        <UploadButton htmlFor="file-upload">
-          <span style={{ position: "relative", top: "-1px" }}>
-            選擇要上傳的檔案
-          </span>
-        </UploadButton>
-        <input
-          type="file"
-          id="file-upload"
-          style={{ display: "none" }}
-          onChange={handleFileUpload}
-        />
+        {isUploadFile ? (
+          <Alert
+            icon={false}
+            action={
+              <IconButton
+                aria-label="delete"
+                size="large"
+                onClick={() => {
+                  setIsUploadFile(false);
+                  setFileName("");
+                }}
+              >
+                <DeleteOutlineIcon
+                  sx={{ fontSize: 25, opacity: 0.8, marginTop: -0.5 }}
+                />
+              </IconButton>
+            }
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "90%",
+              height: "60px",
+              color: "#38a3a5",
+              fontSize: "20px",
+              border: "1.5px solid #38a3a5",
+              borderRadius: "10px",
+              background: "none",
+            }}
+          >
+            <ImageIcon style={{ color: "#38a3a5", fontSize: 25 }} />
+            {` ${fileName}`}
+          </Alert>
+        ) : (
+          <>
+            <UploadButton htmlFor="file-upload">
+              <span style={{ position: "relative", top: "-1px" }}>
+                選擇要上傳的檔案
+              </span>
+            </UploadButton>
+            <input
+              type="file"
+              id="file-upload"
+              style={{ display: "none" }}
+              onChange={handleFileUpload}
+            />
+          </>
+        )}
+
         <IconButton
           aria-label="delete"
           size="large"
@@ -98,34 +148,8 @@ const TypingBar = () => {
           }}
         />
       </UploadContainer>
-      {isUploadFile ? (
-        <Alert
-          icon={false}
-          action={
-            <IconButton
-              aria-label="delete"
-              size="large"
-              onClick={() => {
-                setIsUploadFile(false);
-                setFileName("");
-              }}
-            >
-              <CloseIcon sx={{ fontSize: 15 }} />
-            </IconButton>
-          }
-          sx={{
-            width: "100%",
-            fontSize: "18px",
-            borderRadius: "20px",
-            background: "#F5ECE4",
-            color: "#805F41",
-          }}
-        >
-          <ImageIcon style={{ color: "#805F41", fontSize: 22 }} />
-          {` ${fileName}`}
-        </Alert>
-      ) : null}
-    </CenteredContainer>
+      {/* </CenteredContainer> */}
+    </Stack>
   );
 };
 

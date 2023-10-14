@@ -4,6 +4,7 @@ import "./App.css";
 import logo from "./assets/logo.jpg";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./page/Home";
+import CardPage from "./page/CardPage";
 
 function App() {
   return (
@@ -35,6 +36,14 @@ function App() {
               element={
                 <div>
                   <Home />
+                </div>
+              }
+            />
+            <Route
+              path="/show-opinion"
+              element={
+                <div>
+                  <CardPage />
                 </div>
               }
             />
