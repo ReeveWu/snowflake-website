@@ -2,14 +2,11 @@
   "name": "snowflake",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://reevewu.github.io/snowflake-website/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
