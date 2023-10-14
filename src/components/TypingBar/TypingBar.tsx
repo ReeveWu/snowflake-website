@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import SendIcon from "@mui/icons-material/Send";
+import ImageIcon from "@mui/icons-material/Image";
+import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 import toast, { Toaster } from "react-hot-toast";
 import {
@@ -16,10 +19,13 @@ import {
 
 const TypingBar = () => {
   const [userInput, setUserInput] = useState("");
+  const [fileName, setFileName] = useState("fnn,mnfm,gn,mfnm,");
+  const [isUploadFile, setIsUploadFile] = useState(false);
   const handleFileUpload = (event: any) => {
     const file = event.target.files[0]; // Get the selected file
     // Now you can do something with the selected file, like uploading it to a server
-    console.log("Selected File:", file);
+    setIsUploadFile(true);
+    setFileName(file.name);
   };
   return (
     <CenteredContainer>
@@ -90,6 +96,33 @@ const TypingBar = () => {
           }}
         />
       </UploadContainer>
+      {isUploadFile ? (
+        <Alert
+          icon={false}
+          action={
+            <IconButton
+              aria-label="delete"
+              size="large"
+              onClick={() => {
+                setIsUploadFile(false);
+                setFileName("");
+              }}
+            >
+              <CloseIcon sx={{ fontSize: 15 }} />
+            </IconButton>
+          }
+          sx={{
+            width: "100%",
+            fontSize: "18px",
+            borderRadius: "20px",
+            background: "#F5ECE4",
+            color: "#805F41",
+          }}
+        >
+          <ImageIcon style={{ color: "#805F41", fontSize: 22 }} />
+          {` ${fileName}`}
+        </Alert>
+      ) : null}
     </CenteredContainer>
   );
 };
