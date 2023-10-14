@@ -31,7 +31,7 @@ function App() {
               }
             /> */}
             <Route
-              path="/snowflake-website"
+              path="/"
               element={
                 <div>
                   <Home />
