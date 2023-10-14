@@ -7,7 +7,7 @@ import Home from "./page/Home";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/snowflake-website">
       <div className="App">
         <div>
           <NavBar />
