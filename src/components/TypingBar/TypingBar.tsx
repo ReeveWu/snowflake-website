@@ -1,64 +1,95 @@
 import React, { useState } from "react";
-import Typography from "@mui/material/Typography";
-import styled from "styled-components";
-
-const CenteredContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-`;
-
-const SearchBarContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-`;
-
-const SearchBarTitle = styled.h2`
-  color: #38a3a5;
-  font-weight: 600;
-  font-size: 60px;
-  letter-spacing: 0.05em;
-`;
-
-const SearchBarRow = styled.div`
-  width: 700px;
-  padding: 11px 10px;
-  background: none;
-  border: 1px solid black;
-  border-radius: 30px;
-`;
-
-const CusInput = styled.input`
-  background: transparent;
-  color: black;
-  border: none;
-  padding: 0.5rem;
-  outline: none;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  width: 100%;
-`;
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import SendIcon from "@mui/icons-material/Send";
+import { styled } from "@mui/material/styles";
+import toast, { Toaster } from "react-hot-toast";
+import {
+  CenteredContainer,
+  SearchBarContainer,
+  SearchBarRow,
+  SearchBarTitle,
+  CusInput,
+  UploadContainer,
+  UploadButton,
+} from "./style";
 
 const TypingBar = () => {
   const [userInput, setUserInput] = useState("");
+  const handleFileUpload = (event: any) => {
+    const file = event.target.files[0]; // Get the selected file
+    // Now you can do something with the selected file, like uploading it to a server
+    console.log("Selected File:", file);
+  };
   return (
     <CenteredContainer>
+      <SearchBarTitle>說到玻璃心，你會想到...</SearchBarTitle>
+
       <SearchBarContainer>
-        <SearchBarTitle>寫下你對玻璃心的定義</SearchBarTitle>
         <SearchBarRow>
           <CusInput
             key="search-bar"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
-            placeholder="Typing something..."
+            placeholder="寫點東西..."
           />
         </SearchBarRow>
       </SearchBarContainer>
+      <UploadContainer>
+        <UploadButton htmlFor="file-upload">
+          <span style={{ position: "relative", top: "-1px" }}>
+            選擇要上傳的檔案
+          </span>
+        </UploadButton>
+        <input
+          type="file"
+          id="file-upload"
+          style={{ display: "none" }}
+          onChange={handleFileUpload}
+        />
+        <IconButton
+          aria-label="delete"
+          size="large"
+          onClick={() => {
+            const generatePromise = fetch(
+              "https://jsonplaceholder.typicode.com/todos/1"
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve(data);
+                  }, 1000);
+                });
+              });
+            toast.promise(generatePromise, {
+              loading: "處理中...",
+              success: () => {
+                setUserInput("");
+                return <b>上傳成功</b>;
+              },
+              error: <b>上傳失敗</b>,
+            });
+          }}
+        >
+          <SendIcon
+            sx={{ fontSize: 35 }}
+            style={{ color: "#38a3a5", transform: "rotate(-30deg)" }}
+          />
+        </IconButton>
+        <Toaster
+          position="bottom-center"
+          reverseOrder={false}
+          toastOptions={{
+            success: {
+              iconTheme: {
+                primary: "#38a3a5",
+                secondary: "white",
+              },
+            },
+          }}
+        />
+      </UploadContainer>
     </CenteredContainer>
   );
 };

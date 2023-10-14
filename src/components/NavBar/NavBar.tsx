@@ -12,13 +12,13 @@ const NavBar = () => {
         </Link>
         <div className="links mr-10">
           <Link to="/">
-            <button className="btn nav-component cbtn btn-primary">Home</button>
+            <button className="btn nav-component cbtn btn-primary">首頁</button>
           </Link>
           <Link to="/create-expenditure">
-            <span className="nav-component">About</span>
+            <span className="nav-component">活動簡介</span>
           </Link>
           <Link to="/create-income">
-            <span className="nav-component">Join us</span>
+            <span className="nav-component">線上活動</span>
           </Link>
         </div>
       </nav>
