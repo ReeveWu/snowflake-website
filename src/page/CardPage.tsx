@@ -8,23 +8,26 @@ import CardComponent from "../components/Card/CardComponent";
 import CardDetail from "../components/Card/CardDetail";
 import { Link } from "react-router-dom";
 import { AddPostButton } from "../components/Card/style";
+import postsComment from "../data/postsComment";
 
 const imageList = [
   demoImage,
   demoImage1,
-  demoImage1,
-  demoImage,
-  demoImage1,
-  demoImage,
   demoImage,
   demoImage1,
   demoImage,
   demoImage1,
-  demoImage1,
+  demoImage,
+  demoImage,
   demoImage,
   demoImage1,
   demoImage,
+  demoImage1,
   demoImage,
+  demoImage1,
+  demoImage1,
+  demoImage,
+  demoImage1,
 ];
 
 const CardPage = () => {
@@ -69,7 +72,7 @@ const CardPage = () => {
               key={index}
               imageFile={item}
               cardWidth={cardWidth}
-              commentText={`hfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsd`}
+              commentText={postsComment[index % 7]}
               showOnePost={showOnePost}
             />
           ) : null;

@@ -74,10 +74,14 @@ const CardDetail = ({ imageFile, commentText, setOnePostVisible }: Props) => {
           <Typography
             variant="body1"
             style={{
-              padding: "20px",
+              padding: "25px",
               width: `${window.innerWidth * 0.2}px`,
-              fontSize: "20px",
-              wordWrap: "break-word",
+              height: `${imageHeight}px`,
+              fontSize: "18px",
+              fontWeight: "300",
+              lineHeight: "1.5em",
+              letterSpacing: "0.07em",
+              overflow: "auto",
             }}
           >
             {commentText}

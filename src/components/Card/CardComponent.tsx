@@ -72,8 +72,8 @@ const CardComponent = ({
           color="text.secondary"
           sx={{ width: "100%", wordWrap: "break-word" }}
         >
-          {commentText.length > 150
-            ? commentText.slice(0, 150) + "..."
+          {commentText.length > 70
+            ? commentText.slice(0, 70) + "..."
             : commentText}
         </Typography>
       </CardContent>
