@@ -35,7 +35,7 @@ const TypingBar = () => {
         justifyContent: "center",
         alignItems: "center",
         width: "680px",
-        height: "70vh",
+        height: "85vh",
       }}
     >
       <SearchBarTitle>說到玻璃心，你會想到...</SearchBarTitle>
