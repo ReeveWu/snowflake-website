@@ -1,90 +1,80 @@
 import React, { useEffect, useState } from "react";
-import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import ShareIcon from "@mui/icons-material/Share";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import AddIcon from "@mui/icons-material/Add";
 import demoImage from "../assets/demo.jpg";
 import demoImage1 from "../assets/demo1.jpg";
+import CardComponent from "../components/Card/CardComponent";
+import { Link } from "react-router-dom";
+import { AddPostButton } from "../components/Card/style";
 
-const imageList = [demoImage, demoImage1];
+const imageList = [
+  demoImage,
+  demoImage1,
+  demoImage1,
+  demoImage,
+  demoImage1,
+  demoImage,
+  demoImage,
+  demoImage1,
+  demoImage,
+  demoImage1,
+  demoImage1,
+  demoImage,
+  demoImage1,
+  demoImage,
+  demoImage,
+];
 
 const CardPage = () => {
-  const [imageDimensions, setImageDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
-
+  const cardComponents = [];
+  const [cardWidth, setCardWidth] = useState(0);
   useEffect(() => {
-    const image = new Image();
-    image.src = demoImage;
-
-    image.onload = () => {
-      const width = image.width;
-      const height = image.height;
-      setImageDimensions({ width, height });
-    };
+    const screenWidth = window.innerWidth;
+    setCardWidth(screenWidth / 4 - screenWidth * 0.02);
   }, []);
-  console.log(imageDimensions);
 
-  return (
-    <Stack
-      direction="column"
-      spacing={3}
-      sx={{
-        zIndex: 100,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      {imageList.map((item, index) => {
-        return (
-          <Card sx={{ width: 345 }}>
-            <CardMedia
-              sx={{
-                height: Number(
-                  imageDimensions.width > 345
-                    ? (imageDimensions.height * 345) / imageDimensions.width
-                    : imageDimensions.height
-                ),
-              }}
-              image={demoImage}
+  for (let i = 0; i < 4; i++) {
+    cardComponents.push(
+      <Stack
+        direction="column"
+        spacing={3}
+        sx={{
+          zIndex: 100,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        {imageList.map((item, index) => {
+          return index % 4 == i ? (
+            <CardComponent
+              key={index}
+              imageFile={item}
+              cardWidth={cardWidth}
+              commentText={`hfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsd`}
             />
-            <CardContent>
-              {/* <Typography gutterBottom variant="h5" component="div">
-        Lizard
-      </Typography> */}
-              <Typography variant="body1" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions
-              style={{
-                display: "flex",
-                flexDirection: "row-reverse",
-                justifyContent: "flex-start",
-                marginRight: "10px",
-                gap: "10px",
-              }}
-            >
-              <IconButton size="small" style={{ color: "#38a3a5" }}>
-                <ShareIcon />
-              </IconButton>
-              <IconButton size="small" style={{ color: "#38a3a5" }}>
-                <FavoriteBorderIcon />
-              </IconButton>
-            </CardActions>
-          </Card>
-        );
-      })}
-    </Stack>
+          ) : null;
+        })}
+      </Stack>
+    );
+  }
+  return (
+    <>
+      <Grid container spacing={1}>
+        {cardComponents.map((item, index) => (
+          <Grid item xs={3}>
+            {item}
+          </Grid>
+        ))}
+      </Grid>
+      <Link to="/">
+        <AddPostButton>
+          <AddIcon sx={{ fontSize: "50px", color: "white" }} />
+        </AddPostButton>
+      </Link>
+    </>
   );
 };
 

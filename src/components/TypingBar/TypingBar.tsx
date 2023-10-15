@@ -38,7 +38,6 @@ const TypingBar = () => {
         height: "70vh",
       }}
     >
-      {/* <CenteredContainer> */}
       <SearchBarTitle>說到玻璃心，你會想到...</SearchBarTitle>
 
       <SearchBarContainer>
@@ -146,7 +145,6 @@ const TypingBar = () => {
           }}
         />
       </UploadContainer>
-      {/* </CenteredContainer> */}
     </Stack>
   );
 };

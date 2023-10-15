@@ -4,7 +4,7 @@
     display: flex;
     height: 110px;
     align-items: center;
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
     background-color: white;
     box-shadow: 0px 0px 20px #ffffff;
 }
