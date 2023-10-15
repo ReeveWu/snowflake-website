@@ -25,7 +25,7 @@ function App() {
             />
             <Route path="/about" element={<div>Coming soon...</div>} />
             <Route
-              path="/show-opinion"
+              path="/posts"
               element={
                 <div>
                   <CardPage />
