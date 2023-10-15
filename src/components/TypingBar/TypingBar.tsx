@@ -5,7 +5,9 @@ import SendIcon from "@mui/icons-material/Send";
 import ImageIcon from "@mui/icons-material/Image";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Stack from "@mui/material/Stack";
+import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import {
   CenteredContainer,
   SearchBarContainer,
@@ -26,6 +28,7 @@ const TypingBar = () => {
     setIsUploadFile(true);
     setFileName(file.name);
   };
+  const navigate = useNavigate();
   return (
     <Stack
       direction="column"
@@ -99,34 +102,43 @@ const TypingBar = () => {
             />
           </>
         )}
-
         <IconButton
           aria-label="delete"
           size="large"
           onClick={() => {
-            const generatePromise = fetch(
-              "https://jsonplaceholder.typicode.com/todos/1"
-            )
-              .then((response) => response.json())
-              .then((data) => {
-                return new Promise((resolve) => {
-                  setTimeout(() => {
-                    console.log("data", data);
-                    resolve(data);
-                  }, 1000);
+            if (userInput) {
+              const generatePromise = fetch(
+                "https://jsonplaceholder.typicode.com/todos/1"
+              )
+                .then((response) => response.json())
+                .then((data) => {
+                  return new Promise((resolve) => {
+                    setTimeout(() => {
+                      console.log("data", data);
+                      resolve(data);
+                    }, 1000);
+                  });
                 });
-              });
-            toast.promise(generatePromise, {
-              loading: "處理中...",
-              success: () => {
-                setUserInput("");
-                setIsUploadFile(false);
-                setFileName("");
+              toast
+                .promise(generatePromise, {
+                  loading: "處理中...",
+                  success: () => {
+                    setUserInput("");
+                    setIsUploadFile(false);
+                    setFileName("");
 
-                return <b>上傳成功</b>;
-              },
-              error: <b>上傳失敗</b>,
-            });
+                    return <b>上傳成功</b>;
+                  },
+                  error: <b>上傳失敗</b>,
+                })
+                .then(() => {
+                  setTimeout(() => {
+                    navigate("/posts");
+                  }, 300);
+                });
+            } else {
+              toast.error("請輸入內容！");
+            }
           }}
         >
           <SendIcon
