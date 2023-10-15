@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import logo from "./assets/logo.jpg";
 import NavBar from "./components/NavBar/NavBar";
