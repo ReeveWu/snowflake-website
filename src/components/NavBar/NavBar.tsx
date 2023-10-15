@@ -17,7 +17,7 @@ const NavBar = () => {
           <span className="nav-component">活動簡介</span>
         </Link>
         <Link to="/posts">
-          <span className="nav-component">線上活動</span>
+          <span className="nav-component">玻璃心留言板</span>
         </Link>
       </div>
     </nav>

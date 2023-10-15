@@ -5,6 +5,7 @@ import logo from "./assets/logo.jpg";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./page/Home";
 import CardPage from "./page/CardPage";
+import About from "./page/About";
 
 function App() {
   return (
@@ -23,7 +24,14 @@ function App() {
                 </div>
               }
             />
-            <Route path="/about" element={<div>Coming soon...</div>} />
+            <Route
+              path="/about"
+              element={
+                <div>
+                  <About />
+                </div>
+              }
+            />
             <Route
               path="/posts"
               element={

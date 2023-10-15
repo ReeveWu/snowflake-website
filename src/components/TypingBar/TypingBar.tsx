@@ -36,7 +36,7 @@ const TypingBar = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "left",
         width: "680px",
         height: "85vh",
       }}
@@ -146,19 +146,19 @@ const TypingBar = () => {
             style={{ color: "#38a3a5", transform: "rotate(-30deg)" }}
           />
         </IconButton>
-        <Toaster
-          position="bottom-center"
-          reverseOrder={false}
-          toastOptions={{
-            success: {
-              iconTheme: {
-                primary: "#38a3a5",
-                secondary: "white",
-              },
-            },
-          }}
-        />
       </UploadContainer>
+      <Toaster
+        position="bottom-center"
+        reverseOrder={false}
+        toastOptions={{
+          success: {
+            iconTheme: {
+              primary: "#38a3a5",
+              secondary: "white",
+            },
+          },
+        }}
+      />
     </Stack>
   );
 };
