@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 
 const Home = () => {
   return (
-    <Grid container spacing={2} style={{ width: "100vw", height: "80vh" }}>
+    <Grid container spacing={2} style={{ width: "100vw", height: "90vh" }}>
       <Grid
         item
         xs={6}
