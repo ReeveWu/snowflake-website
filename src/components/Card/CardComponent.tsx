@@ -14,10 +14,16 @@ interface Props {
   imageFile: string;
   commentText: string;
   cardWidth: number;
+  showOnePost: (image: string, comment: string) => void;
 }
 
-const CardComponent = ({ imageFile, commentText, cardWidth }: Props) => {
-  console.log("commentText", commentText.length);
+const CardComponent = ({
+  imageFile,
+  commentText,
+  cardWidth,
+  showOnePost,
+}: Props) => {
+  console.log("imageFile", imageFile);
   const [imageDimensions, setImageDimensions] = useState({
     width: 0,
     height: 0,
@@ -38,8 +44,18 @@ const CardComponent = ({ imageFile, commentText, cardWidth }: Props) => {
   console.log("cardWidth", cardWidth);
 
   return (
-    <Card sx={{ width: cardWidth }}>
+    <Card
+      sx={{
+        width: cardWidth,
+        "&:hover": {
+          boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.3)",
+        },
+      }}
+    >
       <CardMedia
+        onClick={() => {
+          showOnePost(imageFile, commentText);
+        }}
         sx={{
           height: Number(
             imageDimensions.width > cardWidth
@@ -49,7 +65,11 @@ const CardComponent = ({ imageFile, commentText, cardWidth }: Props) => {
         }}
         image={imageFile}
       />
-      <CardContent>
+      <CardContent
+        onClick={() => {
+          showOnePost(imageFile, commentText);
+        }}
+      >
         <Typography
           variant="body1"
           color="text.secondary"

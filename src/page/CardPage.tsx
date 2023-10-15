@@ -5,6 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 import demoImage from "../assets/demo.jpg";
 import demoImage1 from "../assets/demo1.jpg";
 import CardComponent from "../components/Card/CardComponent";
+import CardDetail from "../components/Card/CardDetail";
 import { Link } from "react-router-dom";
 import { AddPostButton } from "../components/Card/style";
 
@@ -34,6 +35,24 @@ const CardPage = () => {
     setCardWidth(screenWidth / 4 - screenWidth * 0.02);
   }, []);
 
+  const [isShowOnePost, setIsShowOnePost] = useState(false);
+  const [showPostImage, setIsShowPostImage] = useState("");
+  const [showPostComment, setIsShowPostComment] = useState("");
+
+  const showOnePost = (
+    image: React.SetStateAction<string>,
+    comment: React.SetStateAction<string>
+  ) => {
+    setIsShowOnePost(true);
+    setIsShowPostImage(image);
+    setIsShowPostComment(comment);
+  };
+  useEffect(() => {
+    console.log("showPostImage", showPostImage);
+  }, [showPostImage]);
+
+  const closeOnePost = () => setIsShowOnePost(false);
+
   for (let i = 0; i < 4; i++) {
     cardComponents.push(
       <Stack
@@ -54,6 +73,7 @@ const CardPage = () => {
               imageFile={item}
               cardWidth={cardWidth}
               commentText={`hfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsdhfkjhjkhdjkhsdkjfsd`}
+              showOnePost={showOnePost}
             />
           ) : null;
         })}
@@ -74,6 +94,13 @@ const CardPage = () => {
           <AddIcon sx={{ fontSize: "50px", color: "white" }} />
         </AddPostButton>
       </Link>
+      {isShowOnePost ? (
+        <CardDetail
+          imageFile={showPostImage}
+          commentText={showPostComment}
+          setOnePostVisible={closeOnePost}
+        />
+      ) : null}
     </>
   );
 };
