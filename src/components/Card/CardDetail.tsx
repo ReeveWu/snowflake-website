@@ -19,7 +19,6 @@ const CardDetail = ({ imageFile, commentText, setOnePostVisible }: Props) => {
   const boxRef = useRef<HTMLDivElement | null>(null);
   const [imageHeight, setImageHeight] = useState<number>(0);
   const [imageWidth, setImageWidth] = useState<number>(0);
-  console.log("imageFile1", imageFile);
   useEffect(() => {
     if (boxRef.current) {
       const height = boxRef.current.getBoundingClientRect().height;
@@ -32,7 +31,6 @@ const CardDetail = ({ imageFile, commentText, setOnePostVisible }: Props) => {
       setImageWidth((imageObject.width * imageHeight) / imageObject.height);
     };
   });
-  console.log("imageWidth", imageWidth);
   return (
     <Paper
       sx={{

@@ -111,6 +111,7 @@ const TypingBar = () => {
               .then((data) => {
                 return new Promise((resolve) => {
                   setTimeout(() => {
+                    console.log("data", data);
                     resolve(data);
                   }, 1000);
                 });
@@ -121,6 +122,7 @@ const TypingBar = () => {
                 setUserInput("");
                 setIsUploadFile(false);
                 setFileName("");
+
                 return <b>上傳成功</b>;
               },
               error: <b>上傳失敗</b>,

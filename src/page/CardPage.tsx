@@ -47,9 +47,6 @@ const CardPage = () => {
     setIsShowPostImage(image);
     setIsShowPostComment(comment);
   };
-  useEffect(() => {
-    console.log("showPostImage", showPostImage);
-  }, [showPostImage]);
 
   const closeOnePost = () => setIsShowOnePost(false);
 

@@ -23,7 +23,6 @@ const CardComponent = ({
   cardWidth,
   showOnePost,
 }: Props) => {
-  console.log("imageFile", imageFile);
   const [imageDimensions, setImageDimensions] = useState({
     width: 0,
     height: 0,
@@ -40,8 +39,6 @@ const CardComponent = ({
       setImageDimensions({ width, height });
     };
   }, []);
-
-  console.log("cardWidth", cardWidth);
 
   return (
     <Card
