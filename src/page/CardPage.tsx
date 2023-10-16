@@ -4,6 +4,10 @@ import Stack from "@mui/material/Stack";
 import AddIcon from "@mui/icons-material/Add";
 import demoImage from "../assets/demo.jpg";
 import demoImage1 from "../assets/demo1.jpg";
+import demoImage2 from "../assets/demo2.jpg";
+import demoImage3 from "../assets/demo3.jpg";
+import demoImage4 from "../assets/demo4.jpg";
+import demoImage5 from "../assets/demo5.jpg";
 import CardComponent from "../components/Card/CardComponent";
 import CardDetail from "../components/Card/CardDetail";
 import { Link } from "react-router-dom";
@@ -13,21 +17,40 @@ import postsComment from "../data/postsComment";
 const imageList = [
   demoImage,
   demoImage1,
+  demoImage2,
+  demoImage3,
+  demoImage4,
+  demoImage5,
   demoImage,
   demoImage1,
+  demoImage2,
+  demoImage3,
+  demoImage4,
+  demoImage5,
   demoImage,
   demoImage1,
-  demoImage,
-  demoImage,
-  demoImage,
-  demoImage1,
-  demoImage,
-  demoImage1,
+  demoImage2,
+  demoImage3,
+  demoImage4,
+  demoImage5,
   demoImage,
   demoImage1,
-  demoImage1,
+  demoImage2,
+  demoImage3,
+  demoImage4,
+  demoImage5,
   demoImage,
   demoImage1,
+  demoImage2,
+  demoImage3,
+  demoImage4,
+  demoImage5,
+  demoImage,
+  demoImage1,
+  demoImage2,
+  demoImage3,
+  demoImage4,
+  demoImage5,
 ];
 
 const CardPage = () => {
