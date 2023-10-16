@@ -15,23 +15,9 @@
 }
 
 
-body {
+html, body {
+  margin: 0px;
   padding: 0px;
-}
-
-.cbtn {
-  width: 100px;
-  height: 50px;
-  
-  background-color: var(--primaryColor) !important;
-  border: 1px solid var(--primaryColor) !important;
-}
-
-.cbtn:hover,
-.cbtn:active {
-  color: var(--primaryColor) !important;
-  background-color: var(--defaultBrightColor) !important;
-  border: 1px solid var(--primaryColor) !important;
 }
 
 .content {
